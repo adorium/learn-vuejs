@@ -1,25 +1,28 @@
 <template>
   <div id="app">
-    <LogIn v-on:loginInfo="requestLogin" msg="Welcome to Your Vue.js App"/>
+    <p style="text-align:center">{{title}}</p>
+    <router-view @loginInfo="displayId" />
   </div>
 </template>
 
 <script>
-import LogIn from './components/LogIn.vue'
 
 export default {
   name: 'App',
-  components: {
-    LogIn
+  data: function() {
+    return {
+      title:'Welcome to InstaPay'
+    }
   },
   methods: {
-    requestLogin:function(user) {
-      console.log(user);
+    displayId: function(user) {
+      console.log(user.userid);
+      this.title = user.userid;
     }
   }
 }
 </script>
 
 <style>
-
+@import './assets/css/layout.css';
 </style>

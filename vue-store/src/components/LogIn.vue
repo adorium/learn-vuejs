@@ -1,48 +1,84 @@
 <template>
-    <div class="page-container login">
-		<div class="login-box">
-			<div class="logo">
-				<img src="../assets/images/logo.png"/>
-			</div>
-			<form class="login-form" action="" v-on:submit.prevent="submitForm">
-                <div class="form-group">
-                    <input type="email" id="userid" v-model="userid" autocomplete="off" placeholder="이메일 ID" class="form-control form-control-solid placeholder-no-fix">
-                </div>
-                <div class="form-group">
-                    <input type="password" autocomplete="off" placeholder="비밀번호" name="password" class="form-control form-control-solid placeholder-no-fix">
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn navy btn-block uppercase">로그인</button>
-                </div>
-                <div class="form-actions">
-                    <div class="pull-left">
-                        <input type="checkbox" name="remember" value="1"><span style="padding: 3px 0px 5px;">아이디 저장</span>
-                    </div>
-                    <div class="pull-right">
-                        <a href="#/newPassword" id="forget-password" class="forget-password">
-                            <i class="fa fa-angle-right"></i> 비밀번호 재설정
-                        </a>
-                    </div>
-                </div>
-			</form>
-		</div>
-	</div>
+  <div class="login-wrapper">
+    <div class="login-box">
+      <div class="login-brand">
+        <img src="../assets/img_logo_navy.png" class='logo'/>
+      </div>
+      <div class="login-form">
+        <form action="" v-on:submit.prevent="submitForm">
+          <div>
+            <label for="username">ID</label>
+            <input type="text" id="username" v-model="userid"/>
+          </div>
+          <div>
+            <label for="password">PW</label>
+            <input type="password" id="password" v-model="password"/>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>  
 </template>
 
 <script>
 export default {
-    name:'LogIn',
-    data:function() {
-        return {
-            userid:'',
-            userpw:'',
-        }
-    },
-    methods:{
-        submitForm: function() {
-            var user = { "userid":this.userid, "password":this.password, "name":"Instapay User" }
-            this.$emit('loginInfo', user);
-        }
+  name:'LogIn',
+  data: function() {
+    return {
+      userid:'',
+      password:''
     }
+  },
+  methods: {
+    submitForm: function(){
+      var user = { "userid":this.userid, "password":this.password, "name":"Instapay User" }
+      //console.log(user);
+
+      this.$emit('loginInfo', user);
+      this.$router.push('/transactionList')
+    }
+  }
+
 }
 </script>
+
+<style>
+.login-wrapper {
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100vw;
+	height:100vh;
+}
+.login-box {
+	width: 80%;
+	max-width: 400px; text-align:center; 
+}
+
+	.login-box .login-brand {
+		padding:0 20px 20px;
+	}
+	.login-box img.logo {
+		max-height:100px;
+	}
+
+  .login-form {
+    padding:0 20px 20px; 
+  }
+	.login-box input {
+		display: block;
+		width: 100%;
+		padding: 6px 12px;
+		font-size: 14px;
+		height: 43px;
+		margin-bottom: 15px; }
+
+	.login-box .btn {
+		margin-top: 20px;
+		padding: 10px 25px;
+		font-weight: 600;  }
+</style>
