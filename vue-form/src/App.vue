@@ -1,7 +1,7 @@
 <template>
   <div style="text-align:center">
-    <login-top v-on:loginInfo="requestLogin"></login-top>
-    <p>{{userData.name}}</p>
+    <login-top @loginInfo="requestLogin"></login-top>
+    <p>{{userData.id}}</p>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ export default {
 
       var url = 'https://jsonplaceholder.typicode.com/users';
       //var url = "https://api.Instapay.kr/s1/login?aid=d20ah-ol17w-03p30-15b05-e05dc&pack=";
-      axios.post(url, this.userData)
+      axios.post(url, { id:this.userData.userid, password:this.userData.pw })
         .then(function(response) {
           console.log(response);
         })
