@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     displayId: function(user) {
-      console.log(user.userid);
+      //console.log(user.userid);
       this.title = user.userid;
     }
   }
