@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <p style="text-align:center">{{title}}</p>
+    <top-nav></top-nav>
     <router-view @loginInfo="displayId" />
   </div>
 </template>
 
 <script>
+import TopNav from './components/TopNav.vue';
 
 export default {
   name: 'App',
@@ -13,6 +15,9 @@ export default {
     return {
       title:'Welcome to InstaPay'
     }
+  },
+  components: {
+    TopNav,
   },
   methods: {
     displayId: function(user) {
