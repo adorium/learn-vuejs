@@ -34,16 +34,16 @@ const router = new VueRouter({
   //base: process.env.BASE_URL,
   routes:routes
 })
-
+var count=0;
 router.beforeEach((to,from,next) => {
-  console.log('from:', from);
+  console.log(count++, 'from:', from);
   console.log('to1:', to);
   if(localStorage.getItem('token') || to.path=='/logIn') {
   //if(localStorage.getItem('token')) {
-    console.log('to2:', to);
+    console.log(count++,'to2:', to);
     next();
   }
-  else { next('/logIn'); console.log('logIn');}
+  else { console.log(count++,'logIn next time'); next('/logIn'); console.log(count++);}
 })
 
 export default router
