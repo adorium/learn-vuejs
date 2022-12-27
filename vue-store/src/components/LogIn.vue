@@ -40,7 +40,7 @@ export default {
         localStorage.setItem('userid',user.userid);
       }
       this.$emit('loginInfo', user);
-      this.$router.push('/transactionList')
+      this.$router.push('/transactionList');//.catch(()=>{});
     }
   }
 
