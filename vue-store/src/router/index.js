@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import LogIn from '../components/LogIn.vue'
-import TransactionList from '../components/TransactionList.vue'
-import NotFound from '../components/NotFound.vue'
+import LogIn from '../views/LogIn.vue'
+//import StoreFrame from '../views/StoreFrame.vue'
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -20,7 +20,7 @@ const routes = [
   {
     path:'/transactionList',
     name:'TransactionList',
-    component:TransactionList
+    component:()=>import('../views/TransactionList.vue')
   },
   {
     path:'*',

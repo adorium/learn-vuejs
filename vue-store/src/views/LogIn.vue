@@ -8,11 +8,11 @@
         <form action="" v-on:submit.prevent="submitForm">
           <div>
             <label for="username">ID</label>
-            <input type="text" id="username" v-model="userid"/>
+            <input type="text" id="username" v-model="user.userid"/>
           </div>
           <div>
             <label for="password">PW</label>
-            <input type="password" id="password" v-model="password"/>
+            <input type="password" id="password" v-model="user.password"/>
           </div>
           <button type="submit">Login</button>
         </form>
@@ -26,24 +26,25 @@ export default {
   name:'LogIn',
   data: function() {
     return {
-      userid:'',
-      password:''
+      user: {
+        userid:'',
+        password:''
+      }
     }
   },
   methods: {
     submitForm: function(){
-      var user = { "userid":this.userid, "password":this.password, "name":"Instapay User" }
+      //var user = { "userid":this.userid, "password":this.password, "name":"Instapay User" }
       //console.log(user);
 
-      if(user.userid=='ks') {
+      if(this.user.userid=='ks') {
         localStorage.setItem('token', 'logined');
-        localStorage.setItem('userid',user.userid);
+        localStorage.setItem('userid',this.user.userid);
+        //this.$emit('loginInfo', this.user);
       }
-      this.$emit('loginInfo', user);
       this.$router.push('/transactionList');//.catch(()=>{});
-    }
-  }
-
+    },
+  },
 }
 </script>
 

@@ -1,33 +1,25 @@
 <template>
   <div id="app">
-    <p style="text-align:center">{{title}}</p>
-    <top-nav></top-nav>
-    <router-view @loginInfo="displayId" />
+    <!--<p style="text-align:center">{{info}}</p>-->
+    <!-- <notifications></notifications> -->
+    <router-view/>
   </div>
 </template>
 
 <script>
-import TopNav from './components/TopNav.vue';
 
 export default {
   name: 'App',
   data: function() {
     return {
-      title:'Welcome to InstaPay'
+      info:'Welcome to InstaPay',
+      userid:'',
     }
   },
-  components: {
-    TopNav,
-  },
-  methods: {
-    displayId: function(user) {
-      //console.log(user.userid);
-      this.title = user.userid;
-    }
-  }
 }
 </script>
 
 <style>
 @import './assets/css/layout.css';
+@import './assets/css/ip-colors.css';
 </style>
