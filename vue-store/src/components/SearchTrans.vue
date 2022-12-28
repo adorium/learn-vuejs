@@ -5,7 +5,7 @@
             <form action="" @submit.prevent="onSubmitQuery">
                 <div class="form-group">
                     <label for="DateFrom">From</label>
-                    <input type="date" id="date_from" v-model="fromDate"/>
+                    <input type="date" id="date_from" placeholder="hi" v-model="fromDate"/>
                 </div>
                 <div class="form-group">
                     <label for="DateTo">To</label>

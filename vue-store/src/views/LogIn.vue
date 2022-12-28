@@ -14,7 +14,8 @@
             <label for="password">PW</label>
             <input type="password" id="password" v-model="user.password"/>
           </div>
-          <button type="submit">Login</button>
+        <p class="text-left">비밀번호를 잊으셨습니까?</p>
+          <button type="submit" class="block primary">로그인</button>
         </form>
       </div>
     </div>
@@ -48,7 +49,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .login-wrapper {
 	display:flex;
 	justify-content:center;
@@ -60,7 +61,7 @@ export default {
 	height:100vh;
 }
 .login-box {
-	width: 80%;
+	width: calc(100% - 2rem);
 	max-width: 400px; text-align:center; 
 }
 
@@ -68,7 +69,7 @@ export default {
 		padding:0 20px 20px;
 	}
 	.login-box img.logo {
-		max-height:100px;
+		max-height:80px;
 	}
 
   .login-form {
@@ -80,10 +81,15 @@ export default {
 		padding: 6px 12px;
 		font-size: 14px;
 		height: 43px;
-		margin-bottom: 15px; }
+		margin-bottom: 0.5rem; }
 
 	.login-box .btn {
 		margin-top: 20px;
 		padding: 10px 25px;
 		font-weight: 600;  }
+
+  button {
+    padding:0.75rem;
+    font-size:1rem;
+  }
 </style>
