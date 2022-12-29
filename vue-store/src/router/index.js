@@ -15,7 +15,8 @@ const routes = [
   {
     path: '/logIn',
     name: 'LogIn',
-    component: LogIn
+    component: LogIn,
+    meta: { noAuthRequired: true }
   },
   {
     path:'/transactionList',
@@ -25,7 +26,8 @@ const routes = [
   {
     path:'*',
     name:'NotFound',
-    component:NotFound
+    component:NotFound,
+    meta: { noAuthRequired: true }
   }
 ]
 
@@ -34,17 +36,17 @@ const router = new VueRouter({
   //base: process.env.BASE_URL,
   routes:routes
 })
-var count=0;
 router.beforeEach((to,from,next) => {
-  console.log(count++, 'from:', from);
+  console.log('A.', 'from:', from);
   console.log('to1:', to);
-  if(localStorage.getItem('token') || to.path=='/logIn') {
-  //if(localStorage.getItem('token')) {
-    console.log(count++,'to2:', to);
+  console.log('require auth?:', !to.matched.some(rInfo=>rInfo.meta.noAuthRequired));
+  //if(localStorage.getItem('token') || to.path=='/logIn') {
+  if(localStorage.getItem('token') || to.matched.some(rInfo=>rInfo.meta.noAuthRequired)) {
+    console.log('B.','to2:', to);
     next();
   }
-  else { console.log(count++,'logIn next time'); 
-    if(from.path!='/logIn') { next('/logIn'); console.log(count++);} 
+  else { console.log('C.','logIn next time'); 
+    if(from.path!='/logIn') { next('/logIn'); 'D.'} 
   }
 })
 
