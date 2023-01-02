@@ -17,20 +17,24 @@
     </div>
 </template>
 <script>
+import tras from '@/assets/json/transactions.json'
+
 export default {
     name:'SearchTrans',
-    data:function() {
+    data() {
         return {
             fromDate:'',
-            toDate:''
+            toDate:'',
+            tras:tras,
         }
     },
     methods:{
         onSubmitQuery:()=>{
-            //
+            // axios로 데이터 요청하여 아래 렌더링
+            
         }
     },
-    mounted(){ console.log('hi')}
+    mounted(){ console.log(this.tras.tras)}
 }
 </script>
 <style scoped>

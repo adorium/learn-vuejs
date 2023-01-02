@@ -19,7 +19,7 @@ import PageFooter from '@/components/Footer.vue';
 
 export default {
     name:'TransactionList',
-    data:function() {
+    data() {
         return {
             pageTitle: '거래내역 조회'
         }
