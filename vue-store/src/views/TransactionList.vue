@@ -4,7 +4,7 @@
         <div class="content-wrapper">
             <top-nav :pTitle="pageTitle"></top-nav>
             <div class="container data-list">
-                <search-tras></search-tras>
+                <router-view @viewTras='setViewMode' @backToSearch='setViewMode'/>
             </div>
             <page-footer></page-footer>
         </div>
@@ -14,21 +14,30 @@
 <script>
 import PageSidebar from '@/components/Sidebar.vue';
 import TopNav from '@/components/TopNav.vue';
-import SearchTras from '@/components/SearchTras.vue';
 import PageFooter from '@/components/Footer.vue';
 
 export default {
     name:'TransactionList',
     data() {
         return {
-            pageTitle: '거래내역 조회'
+            pageTitle: '거래내역 조회',
+            viewDetail:false
         }
     },
     components: {
         PageSidebar,
         TopNav,
-        SearchTras,
         PageFooter,
+    },
+    methods: {
+        setViewMode(bView){
+            this.viewDetail = bView;
+        }
+    },
+    watch:{
+        viewDetail(newVal) {
+            this.pageTitle = (newVal ? '거래 상세내역' : '거래내역 조회');
+        }
     }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="card result mt-20">
         <div class="card-header">
-            <div class="summary">거래내역 <span>000000000</span>건</div>
+            <div class="summary">거래내역 <span>{{countsOfTras}}</span>건</div>
             <div class="actions">Actions</div>
         </div>
         <div class="card-body">
@@ -15,14 +15,14 @@
                     <th>결제일시</th>
                     <th></th>
                 </tr>
-                <tr v-for='tra in tras' :key='tra.tid'>
-                    <td>{{tra.productName}}</td>
-                    <td>{{tra.uname}}</td>
-                    <td>{{tra.paymentAmount}}</td>
-                    <td>{{tra.bankName}}</td>
-                    <td>{{tra.orderNo.slice(0,5)+'..'}}</td>
-                    <td>{{tra.adate}}</td>
-                    <td>></td>
+                <tr v-for='item in results.tras' :key='item.tid' @click="viewTras(item.tid)" class="hoverable">
+                        <td>{{item.productName}}</td>
+                        <td>{{item.uname}}</td>
+                        <td>{{item.paymentAmount}}</td>
+                        <td>{{item.bankName}}</td>
+                        <td>{{item.orderNo.slice(0,5)+'..'}}</td>
+                        <td>{{item.adate}}</td>
+                        <td>></td>
                 </tr>
             </table>
         </div>
@@ -31,12 +31,24 @@
 <script>
 export default {
     name:'ResultTras',
-    props:['tras'],
+    props:['results'],
+    computed:{
+        countsOfTras:function() {
+            return this.results.tras.length;
+        }
+    },
+    methods:{
+        viewTras(tid) {
+            this.$router.push('/tras/'+tid);
+        }
+    }
 }
 </script>
 
 <style scoped>
-th, td { padding:0.25rem 0.5rem; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:0.25rem 0.5rem; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+tr.hoverable:hover { cursor:pointer; background-color:var(--bg-lightgrey); }
 /* for Responsive Table */
 /* @media (max-width:767px) {
 #resultTable table.rs > tr > td:nth-of-type(1):before { font-weight:bold; content: "결제건명"; }

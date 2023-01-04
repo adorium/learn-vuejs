@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LogIn from '../views/LogIn.vue'
-//import StoreFrame from '../views/StoreFrame.vue'
+import TransactionList from '../views/TransactionList.vue'
 import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
@@ -10,7 +10,7 @@ const routes = [
   {
     path:'/',
     name:'root',
-    redirect:'/TransactionList'
+    redirect:'/tras'
   },
   {
     path: '/logIn',
@@ -18,10 +18,26 @@ const routes = [
     component: LogIn,
     meta: { noAuthRequired: true }
   },
+  /*{
+    path:'/tras',
+    name:'TransactionList',
+    component:()=>import('../views/TransactionList.vue'),
+  },*/
   {
     path:'/tras',
     name:'TransactionList',
-    component:()=>import('../views/TransactionList.vue')
+    component:TransactionList,
+    children: [
+      {
+        path:'',
+        component:()=>import('@/components/SearchTras.vue')
+      },
+      {
+        path:':tid',
+        name:'TransactionDetail',
+        component: ()=>import('@/components/TransactionDetail.vue')
+      }
+    ]
   },
   {
     path:'*',

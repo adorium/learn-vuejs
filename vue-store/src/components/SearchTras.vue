@@ -14,7 +14,7 @@
                 <button type="submit">Search</button>
             </form>
         </div>
-        <result-tras :tras='res.tras'></result-tras>
+        <result-tras :results='res'></result-tras>
     </div>
 </template>
 <script>
@@ -40,7 +40,9 @@ export default {
             
         }
     },
-    mounted(){ console.log(this.res.count, this.res.tras)}
+    mounted(){ 
+        this.$emit('viewTras',false); //console.log(this.res.count, this.res.tras)
+    }
 }
 </script>
 <style scoped>

@@ -11,3 +11,5 @@
     --text-light:#fff;
     --ip-green-hover:#26a1ab;
 }
+
+.bg-lightgrey { background-color:var(--bg-lightgrey); }
