@@ -10,7 +10,7 @@ const routes = [
   {
     path:'/',
     name:'root',
-    redirect:'/transactionList'
+    redirect:'/TransactionList'
   },
   {
     path: '/logIn',
@@ -19,7 +19,7 @@ const routes = [
     meta: { noAuthRequired: true }
   },
   {
-    path:'/transactionList',
+    path:'/tras',
     name:'TransactionList',
     component:()=>import('../views/TransactionList.vue')
   },

@@ -4,7 +4,7 @@
         <div class="content-wrapper">
             <top-nav :pTitle="pageTitle"></top-nav>
             <div class="container data-list">
-                <search-trans></search-trans>
+                <search-tras></search-tras>
             </div>
             <page-footer></page-footer>
         </div>
@@ -14,7 +14,7 @@
 <script>
 import PageSidebar from '@/components/Sidebar.vue';
 import TopNav from '@/components/TopNav.vue';
-import SearchTrans from '@/components/SearchTrans.vue';
+import SearchTras from '@/components/SearchTras.vue';
 import PageFooter from '@/components/Footer.vue';
 
 export default {
@@ -27,7 +27,7 @@ export default {
     components: {
         PageSidebar,
         TopNav,
-        SearchTrans,
+        SearchTras,
         PageFooter,
     }
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="page-content">
-        Transaction list here
+        <!-- 추후 form component file로 분할-->
         <div class="form-wrapper">
             <form action="" @submit.prevent="onSubmitQuery">
                 <div class="form-group">
@@ -14,18 +14,24 @@
                 <button type="submit">Search</button>
             </form>
         </div>
+        <result-tras :tras='res.tras'></result-tras>
     </div>
 </template>
 <script>
-import tras from '@/assets/json/transactions.json'
+// 임시 데이터 json load
+import results from '@/assets/json/transactions.json'
+import ResultTras from './ResultTras.vue'
 
 export default {
-    name:'SearchTrans',
+    name:'SearchTras',
+    components: {
+        ResultTras,
+    },
     data() {
         return {
             fromDate:'',
             toDate:'',
-            tras:tras,
+            res:results,
         }
     },
     methods:{
@@ -34,7 +40,7 @@ export default {
             
         }
     },
-    mounted(){ console.log(this.tras.tras)}
+    mounted(){ console.log(this.res.count, this.res.tras)}
 }
 </script>
 <style scoped>

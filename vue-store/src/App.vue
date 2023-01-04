@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!--<p style="text-align:center">{{info}}</p>-->
     <!-- <notifications></notifications> -->
     <router-view/>
   </div>
