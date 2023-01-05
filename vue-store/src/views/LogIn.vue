@@ -43,7 +43,7 @@ export default {
         localStorage.setItem('userid',this.user.userid);
         //this.$emit('loginInfo', this.user);
       }
-      this.$router.push('/transactionList');//.catch(()=>{});
+      this.$router.push('/tras');//.catch(()=>{});
     },
   },
 }

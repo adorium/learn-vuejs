@@ -4,7 +4,7 @@
         <div class="page-content-wrapper">
             <top-nav :pTitle="pageTitle"></top-nav>
             <!-- <div class="container data-list"> -->
-                <router-view @viewTras='setViewMode' @backToSearch='setViewMode'/>
+                <router-view @viewTras='setViewMode' @backToSearch='setViewMode' @openDet='setCurrent' :tra="curItem"/>
             <!-- </div> -->
             <page-footer></page-footer>
         </div>
@@ -21,7 +21,8 @@ export default {
     data() {
         return {
             pageTitle: '거래내역 조회',
-            viewDetail:false
+            viewDetail:false,
+            curItem:{},
         }
     },
     components: {
@@ -32,6 +33,9 @@ export default {
     methods: {
         setViewMode(bView){
             this.viewDetail = bView;
+        },
+        setCurrent(item) {
+            this.curItem = item;
         }
     },
     watch:{

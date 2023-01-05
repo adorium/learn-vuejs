@@ -14,7 +14,7 @@
                 <button type="submit">Search</button>
             </form>
         </div>
-        <result-tras :results='res'></result-tras>
+        <result-tras :results='res' @openDet='openDetail'></result-tras>
     </div>
 </template>
 <script>
@@ -38,6 +38,9 @@ export default {
         onSubmitQuery:()=>{
             // axios로 데이터 요청하여 아래 렌더링
             
+        },
+        openDetail(item) {
+            this.$emit('openDet',item);
         }
     },
     mounted(){ 

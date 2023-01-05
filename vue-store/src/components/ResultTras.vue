@@ -1,7 +1,7 @@
 <template>
-    <div class="card result mt-20">
+    <div class="card light result mt-20">
         <div class="card-header">
-            <div class="summary">거래내역 <span>{{countsOfTras}}</span>건</div>
+            <div class="card-title summary">거래내역 <span>{{countsOfTras}}</span>건</div>
             <div class="actions">Actions</div>
         </div>
         <div class="card-body">
@@ -40,6 +40,9 @@ export default {
     methods:{
         viewTras(tid) {
             this.$router.push('/tras/'+tid);
+            const item = this.results.tras.find(tra=>tra.tid == tid);
+            //console.log(item);
+            this.$emit('openDet',item);
         }
     }
 }
