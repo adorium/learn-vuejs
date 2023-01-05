@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import LogIn from '../views/LogIn.vue'
-import TransactionList from '../views/TransactionList.vue'
-import NotFound from '../views/NotFound.vue'
+import LogIn from '@/views/LogIn.vue'
+import TransactionList from '@/views/TransactionList.vue'
+import NotFound from '@/views/NotFound.vue'
 
 Vue.use(VueRouter)
 

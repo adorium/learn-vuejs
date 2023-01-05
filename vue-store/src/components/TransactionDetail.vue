@@ -1,8 +1,6 @@
 <template>    
     <div class="page-content">
-        <div class="content-wrapper">
-            <div class="noticebar bg-lightgrey">주문번호: {{tid}}</div>
-        </div>
+        <div class="noticebar bg-lightgrey">주문번호: {{tid}}</div>
     </div>
 </template>
 
@@ -23,3 +21,6 @@ export default {
     }
 }
 </script>
+<style scoped>
+.noticebar { padding:1rem 1rem; font-size:13px; border-left:6px solid #c0bec0!important; }
+</style>
