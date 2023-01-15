@@ -4,7 +4,8 @@
         <div class="page-content-wrapper">
             <top-nav :pTitle="pageTitle"></top-nav>
             <!-- <div class="container data-list"> -->
-                <router-view @viewTras='setViewMode' @backToSearch='setViewMode' @openDet='setCurrent' :tra="curItem"/>
+                <!-- <router-view @viewMode='setViewMode' @openDet='setCurrent' :tra="curItem"/> -->
+                <router-view @viewMode='setViewMode'/>
             <!-- </div> -->
             <page-footer></page-footer>
         </div>
@@ -21,8 +22,7 @@ export default {
     data() {
         return {
             pageTitle: '거래내역 조회',
-            viewDetail:false,
-            curItem:{},
+            viewMode:'search',
         }
     },
     components: {
@@ -31,16 +31,14 @@ export default {
         PageFooter,
     },
     methods: {
-        setViewMode(bView){
-            this.viewDetail = bView;
+        // 네비게이션 가드로 처리하는 방법도?
+        setViewMode(type){
+            this.viewMode = type;
         },
-        setCurrent(item) {
-            this.curItem = item;
-        }
     },
     watch:{
-        viewDetail(newVal) {
-            this.pageTitle = (newVal ? '거래 상세내역' : '거래내역 조회');
+        viewMode(newVal) {
+            this.pageTitle = newVal=='search' ? '거래내역 조회' : '거래 상세내역';
         }
     }
 }

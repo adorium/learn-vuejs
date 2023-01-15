@@ -30,11 +30,17 @@ const routes = [
     children: [
       {
         path:'',
-        component:()=>import('@/components/SearchTras.vue')
+        component:()=>import('@/components/SearchTras.vue'),
       },
+      /*
       {
         path:':tid',
         name:'TransactionDetail',
+        component: ()=>import('@/components/TransactionDetail.vue')
+      }*/
+      {
+        path:'detail',
+        name:'TransactionDetal',
         component: ()=>import('@/components/TransactionDetail.vue')
       }
     ]

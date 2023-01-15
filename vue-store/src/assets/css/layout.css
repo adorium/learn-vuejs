@@ -163,12 +163,13 @@ button:focus {
 }
 
 .page-sidebar {
+	flex-shrink:0;
+	display:flex;
 	width: 235px;
-	height: 100%;
 	min-height:100vh; }
-	.page-sidebar .sb-logo {
-		padding: 15px 20px; }
-		.page-sidebar .sb-logo img {
+	.page-sidebar .sb-brand {
+		padding: 1.5rem 1rem }
+		.page-sidebar .sb-brand img {
 			height: 26px; }
 	.page-sidebar ul {
 		padding: 0;
@@ -177,7 +178,7 @@ button:focus {
 	.page-sidebar li > a {
 		padding: 10px 20px; }
 
-	.page-sidebar .sb-logo,
+	.page-sidebar .sb-brand,
 	.page-sidebar li > a {
 		display:block;
 		margin:0;
@@ -373,71 +374,7 @@ ul.breadcrumb {
 	font-size: 18px;
 	font-weight: 700; }
 
-.portlet {
-	margin:0 40px 25px 40px; }
 
-	/*.portlet > .portlet-body {
-		padding:10px 10px 0; }
-		.portlet > .portlet-body:after {
-			content: "";
-			display:table;
-			clear:both; } */
-		.portlet > .portlet-body .sub-title {
-			font-size:14px;
-			padding-bottom: 5px;
-			margin: 20px 0;
-			border-bottom:1px solid #e1e5ec;}
-
-	.portlet > .portlet-title {
-		border-bottom: 1px solid #c0bec0;
-		min-height:41px;
-		margin-bottom:10px;}
-		.portlet > .portlet-title > .subject {
-			color:#7a797a;
-			padding: 10px 0;
-			font-size:16px;
-			float:left;
-			line-height:19px;
-			font-weight:bold;}
-				.portlet > .portlet-title > .subject > .helper {
-					color: #7a797a;
-					font-size: 13px;
-					font-weight: normal; }
-		.portlet > .portlet-title > .summary {
-			float:left;
-			font-size:16px;
-			line-height:19px;
-			padding: 11px 0; 
-			margin-right:20px;}
-		.portlet > .portlet-title > .actions {
-			float:right;
-			padding: 6px 0; }
-			.portlet > .portlet-title > .actions.close {  /* modal page에서 사용 */
-				padding-top: 0;  }
-			.portlet > .portlet-title > .actions > .btn {
-				font-size: 13px;
-				padding: 3px 9px; 
-				line-height: 1.6; }
-		.portlet > .portlet-body {
-			overflow-x: auto; }
-
-.portlet.box {
-	border:1px solid #414042;}
-	.portlet.box .portlet-title {
-		background-color:#414042;
-		border-bottom:0;
-		padding:0 20px;
-		margin-bottom:0;
-		color:#fff;	}
-		.portlet.box > .portlet-title > .subject {
-			color:#fff;		}
-	.portlet.box .portlet-body {
-
-	}
-
-.form-actions {
-	padding: 20px 0;
-}
 
 /* Grid and Form style (like Bootstrap style) */
 :root {
@@ -457,10 +394,10 @@ ul.breadcrumb {
 	padding-left:calc(var(--ip-gutter-x) * 0.5);
 }
 
-.row:after, .form-actions:after {
+/*.row:after, .form-actions:after {
 	content:"";
 	display:table; 
-	clear:both; } 
+	clear:both; } */
 
 .col-2 { width:16.66666667%; }
 .col-4 { width:33.33333333%; }
@@ -472,11 +409,14 @@ ul.breadcrumb {
 	position: relative; }
 
 .form-group {
-	margin-bottom: 15px; }
-	.form-group:after {
-		content:"";
-		display:table; 
-		clear:both; }
+	display:flex;
+	align-items:center;
+}
+.form-group label {
+	flex:0 0 auto;
+	margin-right:0.75rem; 
+	height:auto;
+}
 
 .form-group .control-label {
 	display:block;
@@ -616,23 +556,6 @@ input[type=checkbox] {
 	padding-right: 8px; }
 	.form-group > td:last-child {
 		padding-right: 0; }
-
-table.tile {
-	width: 100%;
-	max-width: 100%;
-	margin-bottom: 20px; }
-
-table.tile, table.tile td, table.tile th { 
-	/*border: 1px solid #e1e5ec;*/
-	border-collapse: collapse;
-	border-spacing: 0; }
-
-table.tile td, table.tile th { 
-	padding: 8px; 
-	white-space: nowrap;}
-
-table.tile th {
-	text-align: left; }
 
 /* store info page의 address */
 #store_addr, #store_addr2 {
