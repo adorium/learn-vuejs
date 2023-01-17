@@ -92,7 +92,7 @@ table { width:100%; border-collapse:collapse; table-layout:fixed; }
 th, td { text-align:left; padding:0.25rem 0.5rem; overflow:hidden; white-space:nowrap;text-overflow:ellipsis; }
 tr.hoverable:hover { cursor:pointer; background-color:var(--bg-lightgrey); }
 
-.card.result table>tr>th:first-child, .card.result table>tr>td:first-child { width:240px;}
+.card.result table>tr>th:first-child, .card.result table>tr>td:first-child { width:40%;}
 .card.result table>tr>th:nth-last-child(2) { width:110px;}
 .card.result table>tr>th:last-child { width:26px;}
 
