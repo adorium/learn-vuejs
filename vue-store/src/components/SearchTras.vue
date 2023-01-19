@@ -40,7 +40,7 @@ export default {
         }
     },
     methods:{
-        lazyLoadJson:()=>import('@/assets/json/transactions.json'),
+        lazyLoadJson:()=>import('@/assets/json/transaction_star.json'),
         onSubmitQuery:function(){
             // axios로 데이터 로딩
             /*axios.get('transactions.json')
