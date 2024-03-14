@@ -3,16 +3,16 @@
         <!-- 추후 form component file로 분할-->
         <div class="form-wrapper">
             <form action="" @submit.prevent="onSubmitQuery">
-                <div class="row">
+                <div class="d-grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-3">
                     <div class="form-group">
-                        <label for="DateFrom">From</label>
-                        <input type="date" id="date_from" placeholder="시작일" v-model="fromDate"/>
+                        <flat-pickr v-model="fromDate" id="date_from" :config="config" placeholder="시작일" class="form-control"></flat-pickr>
                     </div>
                     <div class="form-group">
-                        <label for="DateTo">To</label>
-                        <input type="date" id="data_to" v-model="toDate"/>
+                        <flat-pickr v-model="toDate" id="date_to" :config="config" placeholder="종료일" class="form-control"></flat-pickr>
                     </div>
-                <button type="submit">Search</button>
+                    <div>
+                        <button type="submit">Search</button>
+                    </div>
                 </div>
             </form>
         </div>
